@@ -11,12 +11,20 @@ function Task(props) {
     );
 }
 
-function TasksLists() {
+function TasksList() {
+    const taskItemList = [
+        "Follow Edukasyon.ph on Facebook",
+        "Follow AWS Siklab Pilipinas on Facebook",
+        "Follow Zuitt Coding Bootcamp on Facebook",
+        "Follow Zuitt Coding Bootcamp on Instagram"
+    ];
+
     return (
         <ul>
-            <Task taskName="Follow Edukasyon.ph on Facebook" />
-            <Task taskName="Follow AWS Siklab Pilipinas on Facebook" />
-            <Task taskName="Follow Zuitt Coding Bootcamp on Facebook" />
+            {taskItemList.map((task, index) => {
+                console.log(task, index);
+                return <Task key={index} taskName={task} />;
+            })}
         </ul>
     );
 }
@@ -34,7 +42,7 @@ function App() {
             <header className="app-header">
                 <h1>My Amazing ToDo-List App</h1>
                 <p style={paraStyle}>The most simple and amazing todo-list React app.</p>
-                <TasksLists />
+                <TasksList />
             </header>
         </div>
 
